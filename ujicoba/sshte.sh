@@ -418,7 +418,7 @@ wget -O bannerku "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/bannerku
 wget -O /usr/bin/user-limit https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/user-limit.sh && chmod +x /usr/bin/user-limit
 wget -O autoreboot "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autoreboot.sh"
 wget -O running "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/running.sh"
-wget -O update "https://www.dropbox.com/s/lg2irbw4jcku510/update.sh"
+wget -O update "https://www.dropbox.com/s/unpdunut51e9g83/update2.sh"
 wget -O cfd "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfd.sh"
 wget -O cff "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cff.sh"
 wget -O cfh "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfh.sh"
@@ -472,7 +472,7 @@ chmod +x bbr
 chmod +x bannerku
 chmod +x autoreboot
 chmod +x running
-chmod +x update
+chmod +x update2
 chmod +x cfd
 chmod +x cff
 chmod +x cfh
