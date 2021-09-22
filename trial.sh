@@ -2,8 +2,6 @@
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
-MYIP=$(wget -qO- ifconfig.me/ip);
-
 IP=$(wget -qO- ifconfig.me/ip);
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
