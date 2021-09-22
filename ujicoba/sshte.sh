@@ -133,11 +133,27 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/4hidessh/baru/main/nginx.conf"
 mkdir -p /home/vps/public_html
-echo "<h1><center>AutoScriptVPS By SSH SEDANG NETWORK</center></h1><br><br><center>Whatsapp : <a href="https://api.whatsapp.com/send?phone=6282311190332&text=Saya%20tertarik%20untuk%20membeli%20produk%20ssh%20sedang%20segera.">wa.me/6282311190332</a><br>Telegram : <a href="https://t.me/sshsedang4">t.me/sshsedang4</a></center>" > /home/vps/public_html/index.html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/4hidessh/baru/main/vps.conf"
 /etc/init.d/nginx restart
+
+# setting vnstat
+apt -y install vnstat
+/etc/init.d/vnstat restart
+apt -y install libsqlite3-dev
+wget https://humdi.net/vnstat/vnstat-2.6.tar.gz
+tar zxvf vnstat-2.6.tar.gz
+cd vnstat-2.6
+./configure --prefix=/usr --sysconfdir=/etc && make && make install
+cd
+vnstat -u -i $NET
+sed -i 's/Interface "'""eth0""'"/Interface "'""$NET""'"/g' /etc/vnstat.conf
+chown vnstat:vnstat /var/lib/vnstat -R
+systemctl enable vnstat
+/etc/init.d/vnstat restart
+rm -f /root/vnstat-2.6.tar.gz
+rm -rf /root/vnstat-2.6
 
 # install badvpn
 cd
@@ -196,7 +212,7 @@ accept = 442
 connect = 127.0.0.1:1194
 
 [slws]
-accept = 2053
+accept = 8443
 connect = 127.0.0.1:443
 
 END
@@ -217,7 +233,7 @@ apt-get install sslh -y
 
 #konfigurasi
 #port 333 to 44 and 777
-wget -O /etc/default/sslh "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/SSLH/sslh.conf"
+wget -O /etc/default/sslh "https://raw.githubusercontent.com/4hidessh/baru/main/SSLH/sslh.conf"
 service sslh restart
 
 
@@ -227,22 +243,6 @@ apt -y install squid3
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/4hidessh/hidessh/main/config/squid2"
 sed -i $MYIP2 /etc/squid/squid.conf
 
-# setting vnstat
-apt -y install vnstat
-/etc/init.d/vnstat restart
-apt -y install libsqlite3-dev
-wget https://humdi.net/vnstat/vnstat-2.6.tar.gz
-tar zxvf vnstat-2.6.tar.gz
-cd vnstat-2.6
-./configure --prefix=/usr --sysconfdir=/etc && make && make install
-cd
-vnstat -u -i $NET
-sed -i 's/Interface "'""eth0""'"/Interface "'""$NET""'"/g' /etc/vnstat.conf
-chown vnstat:vnstat /var/lib/vnstat -R
-systemctl enable vnstat
-/etc/init.d/vnstat restart
-rm -f /root/vnstat-2.6.tar.gz
-rm -rf /root/vnstat-2.6
 
 #install badvpncdn
 wget https://github.com/ambrop72/badvpn/archive/master.zip
@@ -284,20 +284,6 @@ echo '.....done'
 echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
-
-# blockir torrent
-apt install iptables-persistent -y
-wget https://raw.githubusercontent.com/4hidessh/hidessh/main/security/torrent && chmod +x torrent && ./torrent
-iptables-save > /etc/iptables.up.rules
-iptables-restore -t < /etc/iptables.up.rules
-netfilter-persistent save
-netfilter-persistent reload
-
-
-# banner ssh
-wget -O /etc/issue.net "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/issue.net"
-echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
-sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # Bruteforce Protection
 iptables -A INPUT -p tcp --dport ssh -m conntrack --ctstate NEW -m recent --set 
@@ -367,11 +353,11 @@ iptables -A INPUT -p tcp --dport 25 -j REJECT
 iptables -A FORWARD -p tcp --dport 25 -j REJECT 
 iptables -A OUTPUT -p tcp --dport 25 -j REJECT 
 
-# install python
-apt -y install ruby
-gem install lolcat
-apt -y install figlet
-apt -y install dos2unix
+cd
+# banner ssh
+wget -O /etc/issue.net "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/issue.net"
+echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 cd
 # Delete Acount SSH Expired
@@ -387,13 +373,14 @@ wget https://raw.githubusercontent.com/4hidessh/baru/main/vpn.sh && chmod +x vpn
 apt -y install ruby
 gem install lolcat
 apt -y install figlet
+apt -y install dos2unix
 
 # download script
 cd /usr/bin
 wget -O add-host "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/about.sh"
-wget -O usernew "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/trial.sh"
+wget -O usernew "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/hapus.sh"
 wget -O member "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/member.sh"
 wget -O delete "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/delete.sh"
@@ -407,7 +394,7 @@ wget -O autokill "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autokill
 wget -O ceklim "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/ceklim.sh"
 wget -O tendang "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/tendang.sh"
 wget -O clear-log "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/clear-log.sh"
-wget -O change-port "https://www.dropbox.com/s/vuj39dw1h1l0n0q/change2.sh"
+wget -O change-port "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/change.sh"
 wget -O port-ovpn "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ovpn.sh"
 wget -O port-ssl "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ssl.sh"
 wget -O port-wg "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-wg.sh"
@@ -434,7 +421,7 @@ wget -O bannerku "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/bannerku
 wget -O /usr/bin/user-limit https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/user-limit.sh && chmod +x /usr/bin/user-limit
 wget -O autoreboot "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autoreboot.sh"
 wget -O running "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/running.sh"
-wget -O update "https://www.dropbox.com/s/unpdunut51e9g83/update2.sh"
+wget -O update "https://www.dropbox.com/s/lg2irbw4jcku510/update.sh"
 wget -O cfd "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfd.sh"
 wget -O cff "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cff.sh"
 wget -O cfh "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfh.sh"
@@ -498,9 +485,12 @@ chmod +x list-port
 chmod +x kernel-update && sed -i -e 's/\r$//' kernel-update
 chmod +x pointing && sed -i -e 's/\r$//' pointing 
 
+
+
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 17 * * * root clear-log && reboot" >> /etc/crontab
 echo "50 * * * * root userdelexpired" >> /etc/crontab
+
 
 # remove unnecessary files
 cd
