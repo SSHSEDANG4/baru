@@ -1,4 +1,9 @@
 #!/bin/bash
+# created bye hidessh.com
+# Auto installer SSH+ Full Websocket + VPN bye HideSSH
+# port Stunnel and Websocket 443
+#Selesai instalasi Websocket
+# ==================================================
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -18,7 +23,7 @@ commonname=sshsedang.my.id
 email=admin@sshsedang.my.id
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/4hidessh/baru/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -46,7 +51,7 @@ END
 #port 88 (OpenSSH) to 2082 (HTTP Websocket)
 cd
 wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/http.py && chmod +x /usr/local/bin/edu-proxy
-wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/http.service && chmod +x /etc/systemd/system/edu-proxy.service
+wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/http.service && chmod +x /etc/systemd/system/edu-proxy.service
 systemctl daemon-reload.service
 systemctl enable edu-proxy.service
 systemctl restart edu-proxy.service
@@ -56,7 +61,7 @@ clear
 #port 69 ( Dropbear) to 8880 (HTTPS Websocket)
 cd
 wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/https.py && chmod +x /usr/local/bin/ws-dropbear
-wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/https.service && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/https.service && chmod +x /etc/systemd/system/ws-dropbear.service
 #reboot service
 systemctl daemon-reload
 systemctl enable ws-dropbear.service
@@ -67,7 +72,7 @@ clear
 # OpenVPN WebSocket
 #port 1194 ( Dropbear) to 2086 (HTTP Websocket)
 wget -O /usr/local/bin/edu-proxyovpn https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/ovpn.py && chmod +x /usr/local/bin/edu-proxyovpn
-wget -O /etc/systemd/system/edu-proxyovpn.service https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/ovpn.service && chmod +x /etc/systemd/system/edu-proxyovpn.service
+wget -O /etc/systemd/system/edu-proxyovpn.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/ovpn.service && chmod +x /etc/systemd/system/edu-proxyovpn.service
 #reboot service
 systemctl daemon-reload
 systemctl enable edu-proxyovpn.service
@@ -128,10 +133,10 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/4hidessh/baru/main/nginx.conf"
 mkdir -p /home/vps/public_html
 echo "<h1><center>AutoScriptVPS By SSH SEDANG NETWORK</center></h1>" > /home/vps/public_html/index.html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/4hidessh/baru/main/vps.conf"
 /etc/init.d/nginx restart
 
 # setting vnstat
@@ -153,7 +158,7 @@ rm -rf /root/vnstat-2.6
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/4hidessh/baru/main/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -180,7 +185,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 apt install stunnel4 -y
 
 #certi stunnel
-wget -O /etc/stunnel/hidessh.pem https://raw.githubusercontent.com/SSHSEDANG4/baru/main/certi/stunel && chmod +x /etc/stunnel/hidessh.pem
+wget -O /etc/stunnel/hidessh.pem https://raw.githubusercontent.com/4hidessh/baru/main/certi/stunel && chmod +x /etc/stunnel/hidessh.pem
 
 
 #konfigurasi stunnel4
@@ -229,14 +234,14 @@ apt-get install sslh -y
 
 #konfigurasi
 #port 333 to 44 and 777
-wget -O /etc/default/sslh "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/SSLH/sslh.conf"
+wget -O /etc/default/sslh "https://raw.githubusercontent.com/4hidessh/baru/main/SSLH/sslh.conf"
 service sslh restart
 
 
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/4hidessh/hidessh/main/config/squid2"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 
@@ -358,77 +363,57 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 cd
 # Delete Acount SSH Expired
 echo "================  Auto deleted Account Expired ======================"
-wget -O /usr/local/bin/userdelexpired "https://raw.githubusercontent.com/SSHSEDANG4/sshtunnel/master/userdelexpired" && chmod +x /usr/local/bin/userdelexpired
+wget -O /usr/local/bin/userdelexpired "https://raw.githubusercontent.com/4hidessh/sshtunnel/master/userdelexpired" && chmod +x /usr/local/bin/userdelexpired
 
 #OpenVPN
 cd
-#wget https://raw.githubusercontent.com/SSHSEDANG4/baru/main/vpnku.sh && chmod +x vpnku.sh && ./vpnku.sh
+#wget https://raw.githubusercontent.com/4hidessh/baru/main/vpnku.sh && chmod +x vpnku.sh && ./vpnku.sh
 wget https://raw.githubusercontent.com/SSHSEDANG4/baru/main/vpn.sh && chmod +x vpn.sh && ./vpn.sh
 
 # install python
 apt -y install ruby
 gem install lolcat
 apt -y install figlet
-apt -y install dos2unix
 
 # download script
 cd /usr/bin
-wget -O add-host "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/about.sh"
-wget -O usernew "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/member.sh"
-wget -O delete "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/delete.sh"
-wget -O cek "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cek.sh"
-wget -O restart "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/info.sh"
-wget -O ram "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/ram.sh"
-wget -O renew "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/renew.sh"
-wget -O autokill "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/tendang.sh"
-wget -O clear-log "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/clear-log.sh"
-wget -O change-port "https://www.dropbox.com/s/vuj39dw1h1l0n0q/change2.sh?"
-wget -O port-ovpn "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-vless.sh"
-wget -O port-ws-ssl "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ws-ssl.sh"
-wget -O wbmn "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/xp.sh"
-wget -O swap "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/swapkvm.sh"
-wget -O menu "https://www.dropbox.com/s/n4ccx773c467hw3/menu.sh"
-wget -O l2tp "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/l2tp.sh"
-wget -O ssh "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/ssh.sh"
-wget -O ssssr "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/ssssr.sh"
-wget -O sstpp "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/sstpp.sh"
-wget -O trojaan "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/trojaan.sh"
-wget -O v2raay "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/v2raay.sh"
-wget -O wgr "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/wgr.sh"
-wget -O vleess "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/vleess.sh"
-wget -O bbr "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/bbr.sh"
-wget -O bannerku "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/bannerku"
-wget -O /usr/bin/user-limit https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/user-limit.sh && chmod +x /usr/bin/user-limit
-wget -O autoreboot "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autoreboot.sh"
-wget -O running "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/running.sh"
-wget -O update "https://www.dropbox.com/s/unpdunut51e9g83/update2.sh"
-wget -O cfd "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfd.sh"
-wget -O cff "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cff.sh"
-wget -O cfh "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfh.sh"
-wget -O subdomain "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/subdomain.sh"
-wget -O port-ws-non-ssl "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ws-non-ssl.sh"
-wget -O list-port "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/list-port.sh"
-wget -O kernel-update "https://www.dropbox.com/s/v7uuuues5qyemz6/kernel-update.sh"
-wget -O rock "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/rock.sh"
-wget -O pointing "https://www.dropbox.com/s/80b8hsh556jp774/pointing.sh"
-
+wget -O add-host "https://raw.githubusercontent.com/4hidessh/cuy1/main/tambah/addhost1.sh"
+wget -O about "https://raw.githubusercontent.com/4hidessh/baru/main/about.sh"
+wget -O menu "https://raw.githubusercontent.com/4hidessh/baru/main/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/4hidessh/baru/main/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/4hidessh/baru/main/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/4hidessh/baru/main/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/4hidessh/baru/main/member.sh"
+wget -O delete "https://raw.githubusercontent.com/4hidessh/baru/main/delete.sh"
+wget -O cek "https://raw.githubusercontent.com/4hidessh/baru/main/cek.sh"
+wget -O restart "https://raw.githubusercontent.com/4hidessh/baru/main/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/4hidessh/baru/main/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/4hidessh/baru/main/info.sh"
+wget -O ram "https://raw.githubusercontent.com/4hidessh/baru/main/ram.sh"
+wget -O renew "https://raw.githubusercontent.com/4hidessh/baru/main/renew.sh"
+wget -O autokill "https://raw.githubusercontent.com/4hidessh/baru/main/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/4hidessh/baru/main/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/4hidessh/baru/main/tendang.sh"
+wget -O clear-log "https://raw.githubusercontent.com/4hidessh/baru/main/clear-log.sh"
+wget -O change-port "https://raw.githubusercontent.com/4hidessh/baru/main/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/4hidessh/baru/main/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/4hidessh/baru/main/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/4hidessh/baru/main/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/4hidessh/baru/main/port-tr.sh"
+wget -O port-sstp "https://raw.githubusercontent.com/4hidessh/baru/main/port-sstp.sh"
+wget -O port-squid "https://raw.githubusercontent.com/4hidessh/baru/main/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/4hidessh/baru/main/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/4hidessh/baru/main/port-vless.sh"
+wget -O wbmn "https://raw.githubusercontent.com/4hidessh/baru/main/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/4hidessh/baru/main/xp.sh"
+wget -O update "https://raw.githubusercontent.com/4hidessh/baru/main/update.sh"
+wget -O /usr/bin/user-limit https://raw.githubusercontent.com/4hidessh/baru/main/user-limit.sh && chmod +x /usr/bin/user-limit
+wget -O cfd "https://raw.githubusercontent.com/4hidessh/baru/main/cfd.sh"
+wget -O cff "https://raw.githubusercontent.com/4hidessh/baru/main/cff.sh"
+wget -O cfh "https://raw.githubusercontent.com/4hidessh/baru/main/cfh.sh"
+wget -O autoreboot "https://raw.githubusercontent.com/4hidessh/baru/main/autoreboot.sh"
 chmod +x add-host
+chmod +x menu
 chmod +x usernew
 chmod +x trial
 chmod +x hapus
@@ -438,49 +423,29 @@ chmod +x cek
 chmod +x restart
 chmod +x speedtest
 chmod +x info
-chmod +x ram
-chmod +x renew
 chmod +x about
 chmod +x autokill
-chmod +x ceklim
 chmod +x tendang
+chmod +x ceklim
+chmod +x ram
+chmod +x renew
 chmod +x clear-log
 chmod +x change-port
 chmod +x port-ovpn
 chmod +x port-ssl
 chmod +x port-wg
-chmod +x port-tr
 chmod +x port-sstp
+chmod +x port-tr
 chmod +x port-squid
 chmod +x port-ws
 chmod +x port-vless
-chmod +x port-ws-ssl
 chmod +x wbmn
 chmod +x xp
-chmod +x swap
-chmod +x menu && sed -i -e 's/\r$//' menu
-chmod +x l2tp
-chmod +x ssh
-chmod +x ssssr
-chmod +x sstpp
-chmod +x trojaan
-chmod +x v2raay
-chmod +x wgr
-chmod +x vleess
-chmod +x bbr
-chmod +x bannerku
-chmod +x autoreboot
-chmod +x running
 chmod +x update
 chmod +x cfd
 chmod +x cff
 chmod +x cfh
-chmod +x subdomain
-chmod +x port-ws-non-ssl
-chmod +x list-port
-chmod +x kernel-update && sed -i -e 's/\r$//' kernel-update
-chmod +x pointing && sed -i -e 's/\r$//' pointing 
-
+chmod +x autoreboot
 
 
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
