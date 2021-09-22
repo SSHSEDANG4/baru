@@ -1,9 +1,4 @@
 #!/bin/bash
-# created bye hidessh.com
-# Auto installer SSH+ Full Websocket + VPN bye HideSSH
-# port Stunnel and Websocket 443
-#Selesai instalasi Websocket
-# ==================================================
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -135,6 +130,7 @@ rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/4hidessh/baru/main/nginx.conf"
 mkdir -p /home/vps/public_html
+echo "<h1><center>AutoScriptVPS By SSH SEDANG NETWORK</center></h1><br><br><center>Whatsapp : <a href="https://api.whatsapp.com/send?phone=6282311190332&text=Saya%20tertarik%20untuk%20membeli%20produk%20ssh%20sedang%20segera.">wa.me/6282311190332</a><br>Telegram : <a href="https://t.me/sshsedang4">t.me/sshsedang4</a></center>" > /home/vps/public_html/index.html
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/4hidessh/baru/main/vps.conf"
 /etc/init.d/nginx restart
 
