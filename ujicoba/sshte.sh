@@ -391,7 +391,7 @@ wget -O autokill "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autokill
 wget -O ceklim "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/ceklim.sh"
 wget -O tendang "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/tendang.sh"
 wget -O clear-log "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/clear-log.sh"
-wget -O change-port "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/change.sh"
+wget -O change-port "https://www.dropbox.com/s/vuj39dw1h1l0n0q/change2.sh"
 wget -O port-ovpn "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ovpn.sh"
 wget -O port-ssl "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ssl.sh"
 wget -O port-wg "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-wg.sh"
