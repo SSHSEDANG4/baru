@@ -24,6 +24,7 @@ IP=$(wget -qO- ifconfig.me/ip);
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
+bad="$(cat ~/log-install.txt | grep -w "Badvpn" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 wsnonssl="$(cat ~/log-install.txt | grep -w "Websocket NON SSL" | cut -d: -f2|sed 's/ //g')"
@@ -60,7 +61,7 @@ echo -e "Port WS SSL    : 443"
 echo -e "Port WS DB     : $wsnonssl"
 echo -e "Port WS OS     : 2082"
 echo -e "Port WS OVPN   : 2086"
-echo -e "Badvpn         : 7100-7300"
+echo -e "Badvpn         :$bad"
 echo -e "===============================" | lolcat
 echo -e "OpenVPN        : TCP $ovpn http://$IP:81/client-tcp-1194.ovpn"
 echo -e "OpenVPN        : UDP $ovpn2 http://$IP:81/client-udp-2200.ovpn"
