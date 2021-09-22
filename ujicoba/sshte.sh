@@ -379,8 +379,8 @@ apt -y install dos2unix
 cd /usr/bin
 wget -O add-host "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/about.sh"
-wget -O usernew "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/trial.sh"
+wget -O usernew "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/hapus.sh"
 wget -O member "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/member.sh"
 wget -O delete "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/delete.sh"
@@ -394,7 +394,7 @@ wget -O autokill "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autokill
 wget -O ceklim "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/ceklim.sh"
 wget -O tendang "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/tendang.sh"
 wget -O clear-log "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/clear-log.sh"
-wget -O change-port "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/change.sh"
+wget -O change-port "https://www.dropbox.com/s/vuj39dw1h1l0n0q/change2.sh?"
 wget -O port-ovpn "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ovpn.sh"
 wget -O port-ssl "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-ssl.sh"
 wget -O port-wg "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/port-wg.sh"
@@ -421,7 +421,7 @@ wget -O bannerku "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/bannerku
 wget -O /usr/bin/user-limit https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/user-limit.sh && chmod +x /usr/bin/user-limit
 wget -O autoreboot "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/autoreboot.sh"
 wget -O running "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/running.sh"
-wget -O update "https://www.dropbox.com/s/lg2irbw4jcku510/update.sh"
+wget -O update "https://www.dropbox.com/s/unpdunut51e9g83/update2.sh"
 wget -O cfd "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfd.sh"
 wget -O cff "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cff.sh"
 wget -O cfh "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/cfh.sh"
