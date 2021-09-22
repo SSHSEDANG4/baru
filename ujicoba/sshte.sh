@@ -472,7 +472,7 @@ chmod +x bbr
 chmod +x bannerku
 chmod +x autoreboot
 chmod +x running
-chmod +x update2
+chmod +x update
 chmod +x cfd
 chmod +x cff
 chmod +x cfh
