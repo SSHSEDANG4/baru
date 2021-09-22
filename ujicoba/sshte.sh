@@ -45,7 +45,7 @@ END
 # Websocket OpenSSH
 #port 88 (OpenSSH) to 2082 (HTTP Websocket)
 cd
-wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/http.py && chmod +x /usr/local/bin/edu-proxy
+wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/http.py && chmod +x /usr/local/bin/edu-proxy
 wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/http.service && chmod +x /etc/systemd/system/edu-proxy.service
 systemctl daemon-reload.service
 systemctl enable edu-proxy.service
@@ -55,7 +55,7 @@ clear
 # Dropbear WebSocket
 #port 69 ( Dropbear) to 8880 (HTTPS Websocket)
 cd
-wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/https.py && chmod +x /usr/local/bin/ws-dropbear
+wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/https.py && chmod +x /usr/local/bin/ws-dropbear
 wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/https.service && chmod +x /etc/systemd/system/ws-dropbear.service
 #reboot service
 systemctl daemon-reload
@@ -66,7 +66,7 @@ clear
 
 # OpenVPN WebSocket
 #port 1194 ( Dropbear) to 2086 (HTTP Websocket)
-wget -O /usr/local/bin/edu-proxyovpn https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/ovpn.py && chmod +x /usr/local/bin/edu-proxyovpn
+wget -O /usr/local/bin/edu-proxyovpn https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/ovpn.py && chmod +x /usr/local/bin/edu-proxyovpn
 wget -O /etc/systemd/system/edu-proxyovpn.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/ovpn.service && chmod +x /etc/systemd/system/edu-proxyovpn.service
 #reboot service
 systemctl daemon-reload
