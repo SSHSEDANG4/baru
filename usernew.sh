@@ -26,6 +26,7 @@ ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
+wsnonssl="$(cat ~/log-install.txt | grep -w "Websocket NON SSL" | cut -d: -f2|sed 's/ //g')"
 sleep 1
 echo Ping Host
 echo Cek Hak Akses...
@@ -56,7 +57,7 @@ echo -e "Dropbear       : 109, 143"
 echo -e "SSL/TLS        :$ssl"
 echo -e "Port Suid      :$sqd"
 echo -e "Port WS SSL    : 443"
-echo -e "Port WS DB     : 8880"
+echo -e "Port WS DB     : $wsnonssl"
 echo -e "Port WS OS     : 2082"
 echo -e "Port WS OVPN   : 2086"
 echo -e "Badvpn         : 7100-7300"
