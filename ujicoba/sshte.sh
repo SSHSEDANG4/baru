@@ -18,7 +18,7 @@ commonname=sshsedang.my.id
 email=admin@sshsedang.my.id
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/4hidessh/baru/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -46,7 +46,7 @@ END
 #port 88 (OpenSSH) to 2082 (HTTP Websocket)
 cd
 wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/http.py && chmod +x /usr/local/bin/edu-proxy
-wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/http.service && chmod +x /etc/systemd/system/edu-proxy.service
+wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/http.service && chmod +x /etc/systemd/system/edu-proxy.service
 systemctl daemon-reload.service
 systemctl enable edu-proxy.service
 systemctl restart edu-proxy.service
@@ -56,7 +56,7 @@ clear
 #port 69 ( Dropbear) to 8880 (HTTPS Websocket)
 cd
 wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/https.py && chmod +x /usr/local/bin/ws-dropbear
-wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/https.service && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/https.service && chmod +x /etc/systemd/system/ws-dropbear.service
 #reboot service
 systemctl daemon-reload
 systemctl enable ws-dropbear.service
@@ -67,7 +67,7 @@ clear
 # OpenVPN WebSocket
 #port 1194 ( Dropbear) to 2086 (HTTP Websocket)
 wget -O /usr/local/bin/edu-proxyovpn https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/ovpn.py && chmod +x /usr/local/bin/edu-proxyovpn
-wget -O /etc/systemd/system/edu-proxyovpn.service https://raw.githubusercontent.com/4hidessh/baru/main/websocket-python/baru/ovpn.service && chmod +x /etc/systemd/system/edu-proxyovpn.service
+wget -O /etc/systemd/system/edu-proxyovpn.service https://raw.githubusercontent.com/SSHSEDANG4/baru/main/websocket-python/baru/ovpn.service && chmod +x /etc/systemd/system/edu-proxyovpn.service
 #reboot service
 systemctl daemon-reload
 systemctl enable edu-proxyovpn.service
@@ -128,10 +128,10 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/4hidessh/baru/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/nginx.conf"
 mkdir -p /home/vps/public_html
 echo "<h1><center>AutoScriptVPS By SSH SEDANG NETWORK</center></h1>" > /home/vps/public_html/index.html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/4hidessh/baru/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/vps.conf"
 /etc/init.d/nginx restart
 
 # setting vnstat
@@ -153,7 +153,7 @@ rm -rf /root/vnstat-2.6
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/4hidessh/baru/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -180,7 +180,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 apt install stunnel4 -y
 
 #certi stunnel
-wget -O /etc/stunnel/hidessh.pem https://raw.githubusercontent.com/4hidessh/baru/main/certi/stunel && chmod +x /etc/stunnel/hidessh.pem
+wget -O /etc/stunnel/hidessh.pem https://raw.githubusercontent.com/SSHSEDANG4/baru/main/certi/stunel && chmod +x /etc/stunnel/hidessh.pem
 
 
 #konfigurasi stunnel4
@@ -229,14 +229,14 @@ apt-get install sslh -y
 
 #konfigurasi
 #port 333 to 44 and 777
-wget -O /etc/default/sslh "https://raw.githubusercontent.com/4hidessh/baru/main/SSLH/sslh.conf"
+wget -O /etc/default/sslh "https://raw.githubusercontent.com/SSHSEDANG4/baru/main/SSLH/sslh.conf"
 service sslh restart
 
 
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/4hidessh/hidessh/main/config/squid2"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/SSHSEDANG4/hidessh/main/config/squid2"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 
@@ -358,12 +358,12 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 cd
 # Delete Acount SSH Expired
 echo "================  Auto deleted Account Expired ======================"
-wget -O /usr/local/bin/userdelexpired "https://raw.githubusercontent.com/4hidessh/sshtunnel/master/userdelexpired" && chmod +x /usr/local/bin/userdelexpired
+wget -O /usr/local/bin/userdelexpired "https://raw.githubusercontent.com/SSHSEDANG4/sshtunnel/master/userdelexpired" && chmod +x /usr/local/bin/userdelexpired
 
 #OpenVPN
 cd
-#wget https://raw.githubusercontent.com/4hidessh/baru/main/vpnku.sh && chmod +x vpnku.sh && ./vpnku.sh
-wget https://raw.githubusercontent.com/4hidessh/baru/main/vpn.sh && chmod +x vpn.sh && ./vpn.sh
+#wget https://raw.githubusercontent.com/SSHSEDANG4/baru/main/vpnku.sh && chmod +x vpnku.sh && ./vpnku.sh
+wget https://raw.githubusercontent.com/SSHSEDANG4/baru/main/vpn.sh && chmod +x vpn.sh && ./vpn.sh
 
 # install python
 apt -y install ruby
