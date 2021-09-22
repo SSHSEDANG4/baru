@@ -25,6 +25,12 @@ sleep 0.5
 echo Setting Password: $Pass
 sleep 0.5
 clear
+source /var/lib/premium-script/ipvps.conf
+if [[ "$IP" = "" ]]; then
+domain=$(cat /etc/v2ray/domain)
+else
+domain=$IP
+fi
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
@@ -36,6 +42,7 @@ echo -e "Password       : $Pass"
 echo -e "Expired On     : $exp"
 echo -e "===============================" | lolcat
 echo -e "ISP            : $ISP"
+echo -e "Domain         : $domain"
 echo -e "Host           : $IP"
 echo -e "OpenSSH        : 22"
 echo -e "DropBear       : 109, 143"
