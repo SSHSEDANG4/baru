@@ -18,7 +18,7 @@ echo -e "Name : SSH , WebSocket, Openvpn"
 echo -e "===============================" | lolcat
 read -p "Username : " Login
 read -p "Password : " Pass
-read -p "Expired (hari): " masaaktif
+read -p "Expired (On): " masaaktif
 
 IP=$(wget -qO- ifconfig.me/ip);
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
