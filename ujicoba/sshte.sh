@@ -120,17 +120,23 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch git lsof
 echo "clear" >> .profile
 echo "neofetch" >> .profile
-echo "echo by HideSSH.com" >> .profile
-echo "echo Ketik menu" >> .profile
+echo "echo Script Premium By SSH Sedang Network" >> .profile
+echo "echo " >> .profile
+echo "echo Contact : " >> .profile
+echo "echo - Whatsapp : wa.me/6282311190332" >> .profile
+echo "echo - Telegram : t.me/sshsedang4" >> .profile
+echo "echo " >> .profile
+echo "echo Silahkan Ketik menu Untuk Melihat daftar Perintah" >> .profile
 
 # install webserver
 apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/4hidessh/baru/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/4hidessh/baru/main/vps.conf"
+echo "<h1><center>AutoScriptVPS By SSH SEDANG NETWORK</center></h1><br><br><center>Whatsapp : <a href="https://api.whatsapp.com/send?phone=6282311190332&text=Saya%20tertarik%20untuk%20membeli%20produk%20ssh%20sedang%20segera.">wa.me/6282311190332</a><br>Telegram : <a href="https://t.me/sshsedang4">t.me/sshsedang4</a></center>" > /home/vps/public_html/index.html
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
