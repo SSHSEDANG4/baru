@@ -65,7 +65,7 @@ echo -e "Badvpn         :$bad"
 echo -e "===============================" | lolcat
 echo -e "OpenVPN        : TCP $ovpn http://$IP:81/client-tcp-1194.ovpn"
 echo -e "OpenVPN        : UDP $ovpn2 http://$IP:81/client-udp-2200.ovpn"
-echo -e "OpenVPN        : SSL 442 http://$IP:81/client-tcp-ssl.ovpn"
+echo -e "OpenVPN        : SSL 442  http://$IP:81/client-tcp-ssl.ovpn"
 echo -e "===============================" | lolcat
 echo -e "PAYLOAD WS     :"
 echo -e "GET / HTTP/1.1[crlf]Host: $domain[crlf]Upgrade: websocket[crlf][crlf]"
