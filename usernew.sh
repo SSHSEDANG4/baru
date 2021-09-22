@@ -47,7 +47,7 @@ echo -e "Name : SSH , WebSocket, Openvpn"
 echo -e "===============================" | lolcat
 echo -e "Username       : $Login "
 echo -e "Password       : $Pass"
-echo -e "Expired On      : $exp"
+echo -e "Expired On     : $exp"
 echo -e "===============================" | lolcat
 echo -e "ISP            : $ISP"
 echo -e "Domain         : $domain"
