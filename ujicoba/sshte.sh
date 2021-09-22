@@ -17,10 +17,10 @@ ver=$VERSION_ID
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=hidessh.com
-organizationalunit=hidessh.com
-commonname=hidessh.com
-email=admin@hidessh.com
+organization=sshsedang.my.id
+organizationalunit=sshsedang.my.id
+commonname=sshsedang.my.id
+email=admin@sshsedang.my.id
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/4hidessh/baru/main/password"
