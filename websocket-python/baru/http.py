@@ -14,7 +14,7 @@ BUFLEN = 4096 * 4
 TIMEOUT = 60
 #port opensssh
 DEFAULT_HOST = '127.0.0.1:88'
-RESPONSE = 'HTTP/1.1 101 HTTP to OpenSSH Bye HideSSH.com\r\n\r\n'
+RESPONSE = 'HTTP/1.1 101 HTTP to OpenSSH <b><u><font color="red">Setup By SSH SEDANG NETWORK</font></b>\r\n\r\n'
 #RESPONSE = 'HTTP/1.1 200 Hello_World!\r\nContent-length: 0\r\n\r\nHTTP/1.1 200 Connection established\r\n\r\n'  # lint:ok
 
 class Server(threading.Thread):
