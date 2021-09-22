@@ -14,6 +14,8 @@ domain=$(cat /etc/v2ray/domain)
 else
 domain=$IP
 fi
+echo -e "Name : SSH , WebSocket, Openvpn"
+echo -e "===============================" | lolcat
 read -p "Username : " Login
 read -p "Password : " Pass
 read -p "Expired (hari): " masaaktif
