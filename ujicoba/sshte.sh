@@ -236,7 +236,7 @@ service sslh restart
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/SSHSEDANG4/hidessh/main/config/squid2"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/SSHSEDANG4/vpn/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 
