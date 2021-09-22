@@ -55,6 +55,7 @@ echo -e "SSL/TLS        :$ssl"
 echo -e "Port Suid      :$sqd"
 echo -e "Port WS SSL    : 443"
 echo -e "Port WS        : 8880"
+echo -e "Port WS OVPN   : 2086"
 echo -e "Badvpn         : 7100-7300"
 echo -e "===============================" | lolcat
 echo -e "OpenVPN        : TCP $ovpn http://$IP:81/client-tcp-1194.ovpn"
