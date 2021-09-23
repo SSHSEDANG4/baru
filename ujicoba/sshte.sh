@@ -483,11 +483,12 @@ chmod +x subdomain
 chmod +x port-ws-non-ssl
 chmod +x list-port
 chmod +x kernel-update && sed -i -e 's/\r$//' kernel-update
-chmod +x pointing && sed -i -e 's/\r$//' pointing 
+chmod +x pointing && sed -i -e 's/\r$//' pointing
+chmod +x rock
+
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 17 * * * root clear-log && reboot" >> /etc/crontab
 echo "50 * * * * root userdelexpired" >> /etc/crontab
-
 
 # remove unnecessary files
 cd
