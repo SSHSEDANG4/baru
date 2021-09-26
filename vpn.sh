@@ -1,7 +1,4 @@
 #!/bin/bash
-#
-# By Rpj Wonosobo
-# ==================================================
 
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive
