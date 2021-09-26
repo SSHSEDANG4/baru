@@ -6,13 +6,7 @@
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
-clear
-source /var/lib/premium-script/ipvps.conf
-if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/v2ray/domain)
-else
-domain=$IP
-fi
 MYIP2="s/xxxxxxxxx/$domain/g";
 ANU=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 
